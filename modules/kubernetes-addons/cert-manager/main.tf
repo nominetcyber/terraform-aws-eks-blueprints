@@ -39,6 +39,14 @@ resource "helm_release" "cert_manager_letsencrypt" {
   depends_on = [module.helm_addon]
 }
 
+resource "helm_release" "trust_manager" {
+  count     = var.manage_via_gitops || !var.install_trust_manager ? 0 : 1
+  name      = "trust-manager"
+  chart     = local.helm_config["repository"]
+  version   = "0.4.0"
+  namespace = loca.helm_config["namespace"]
+}
+
 resource "aws_iam_policy" "cert_manager" {
   description = "cert-manager IAM policy."
   name        = "${var.addon_context.eks_cluster_id}-${local.helm_config["name"]}-irsa"

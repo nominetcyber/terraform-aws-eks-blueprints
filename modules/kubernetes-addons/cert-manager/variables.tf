@@ -34,6 +34,12 @@ variable "letsencrypt_email" {
   default     = ""
 }
 
+variable "install_trust_manager" {
+  description = "Install Trust-manager"
+  type        = bool
+  default     = false
+}
+
 variable "addon_context" {
   description = "Input configuration for the addon"
   type = object({
