@@ -756,6 +756,18 @@ variable "cert_manager_helm_config" {
   default     = {}
 }
 
+variable "cert_manager_cacert_duration" {
+  description = "cert-manager cacert duration"
+  type        = string
+  default     = ""
+}
+
+variable "cert_manager_cacert_renew_before" {
+  description = "cert-manager cacert renewal time"
+  type        = string
+  default     = ""
+}
+
 variable "cert_manager_irsa_policies" {
   description = "Additional IAM policies for a IAM role for service accounts"
   type        = list(string)

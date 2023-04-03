@@ -14,6 +14,16 @@ resource "helm_release" "cert_manager_ca" {
   version   = "0.2.0"
   namespace = local.helm_config["namespace"]
 
+  set {
+    name  = "clusterIssuers[1].duration"
+    value = var.cacert_duration
+  }
+
+  set {
+    name  = "clusterIssuers[1].renewBefore"
+    value = var.cacert_renew_before
+  }
+
   depends_on = [module.helm_addon]
 }
 

@@ -214,6 +214,8 @@ module "cert_manager" {
   install_letsencrypt_issuers       = var.cert_manager_install_letsencrypt_issuers
   letsencrypt_email                 = var.cert_manager_letsencrypt_email
   kubernetes_svc_image_pull_secrets = var.cert_manager_kubernetes_svc_image_pull_secrets
+  cacert_duration                   = var.cert_manager_cacert_duration
+  cacert_renew_before               = var.cert_manager_cacert_renew_before
 }
 
 module "cert_manager_csi_driver" {

@@ -4,6 +4,18 @@ variable "helm_config" {
   default     = {}
 }
 
+variable "cacert_duration" {
+  description = "cert-manager cacert duration"
+  type        = string
+  default     = ""
+}
+
+variable "cacert_renew_before" {
+  description = "cert-manager cacert renewal time"
+  type        = string
+  default     = ""
+}
+
 variable "manage_via_gitops" {
   description = "Determines if the add-on should be managed via GitOps."
   type        = bool

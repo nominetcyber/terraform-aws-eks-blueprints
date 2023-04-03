@@ -17,5 +17,11 @@ spec:
   issuerRef:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- if .duration }}
+  duration: {{ .duration }}
+  {{- end }}
+  {{- if .renewBefore }}
+  renewBefore: {{ .renewBefore }}
+  {{- end }}
 {{- end }}
 {{- end }}
